@@ -1,0 +1,38 @@
+.rating-container .star-wrapper {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 2rem;
+}
+
+.rating-container .star-wrapper span {
+	display: inline-block;
+	font-size: 2.5rem;
+	transition: transform 0.3s, background-image 0.3s;
+}
+
+.rating-container .star-wrapper span:hover {
+	background-image: var(--yellow-gradient);
+	-webkit-background-clip: text;
+   background-clip: text;
+	-webkit-text-fill-color: transparent;
+	cursor: pointer;
+	transform: scale(1.3);
+}
+
+.rating-container .star-wrapper span:hover ~ span {
+	background-image: var(--yellow-gradient);
+	-webkit-background-clip: text;
+   background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.rating-container .description {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.2rem;
+}
+
+.rating-container .description p {
+	font-size: 0.75rem;
+	color: var(--gray-30);
+}
