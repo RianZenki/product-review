@@ -18,6 +18,7 @@ export const StarRating = () => {
 					<span
 						onClick={() => handleChangingValue(ratingValue)}
 						className={ratingValue === rating ? classes.selected : ""}
+						key={ratingValue}
 					>
 						&#9733;
 					</span>
