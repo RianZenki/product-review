@@ -9,10 +9,7 @@ interface ButtonProps {
 
 export const Button = (props: ButtonProps) => {
 	return (
-		<button
-			type="button"
-			className={`${classes.button} ${props.className}`}
-		>
+		<button className={`${classes.button} ${props.className}`}>
 			{props.children}
 			<ArrowRight size={24} />
 		</button>
