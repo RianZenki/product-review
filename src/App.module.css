@@ -6,6 +6,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0 2rem;
 }
 
 .container .card {
@@ -26,6 +27,14 @@
 	position: relative;
 }
 
+.container .card header .arrow-back {
+	color: var(--gray-10);
+	position: absolute;
+	left: 5%;
+	top: 10%;
+	cursor: pointer;
+}
+
 .container .card header img {
 	position: absolute;
 	bottom: 0;
@@ -41,29 +50,6 @@
 	border-radius: 0 0 1.25rem 1.25rem;
 }
 
-.content .title {
-	text-align: center;
-	width: 80%;
-	margin-bottom: 2rem;
-}
-
-.content .title h2 {
-	font-size: 1.2rem;
-	color: var(--gray-50);
-	margin-bottom: 0.5rem;
-}
-
-.content .title p {
-	font-size: 1rem;
-	color: var(--gray-40);
-	line-height: 150%;
-}
-
-.content .title p strong {
-	font-weight: 400;
-	color: var(--brand-color-20);
-}
-
-.confirm {
+.confirm-button {
 	margin-top: 2.5rem;
 }

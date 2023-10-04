@@ -1,28 +1,46 @@
-import { Button } from './components/ui/Button'
-import { StarRating } from './components/StarRating';
+import { FormEvent } from "react";
+import { ArrowLeft } from "@phosphor-icons/react";
+
+import { useMultistepForm } from "./hooks/useMultistepForm";
+import { CommentProduct } from "./components/CommentProduct";
+import { RateProduct } from "./components/RateProduct";
+import { Button } from "./components/ui/Button";
 
 import classes from "./App.module.css";
 
-import smartwatch from './assets/watch.png'
+import smartwatch from "./assets/watch.png";
 
 export function App() {
+	const { step, back, next, isFirstIndex, isLastIndex } = useMultistepForm([
+		<RateProduct />,
+		<CommentProduct />,
+	]);
+
+	const handleSubmitForm = (e: FormEvent) => {
+		e.preventDefault();
+		next()
+	};
+
 	return (
 		<div className={classes.container}>
 			<div className={classes.card}>
-        <header>
-            <img src={smartwatch} alt="smartwatch amazfit" />
-        </header>
-        <main className={classes.content}>
-          <div className={classes.title}>
-            <h2>Avalie o produto</h2>
-            <p>O que você achou do produto <strong>Smartwatch Amazfit Bip U Pro</strong>?</p>
-          </div>
-
-          <StarRating />
-
-          <Button className={classes.confirm}>Confirmar</Button>
-        </main>
-      </div>
+				<header>
+					{!isFirstIndex && (
+						<ArrowLeft
+							size={24}
+							className={classes["arrow-back"]}
+							onClick={back}
+						/>
+					)}
+					<img src={smartwatch} alt="smartwatch amazfit" />
+				</header>
+				<form className={classes.content} onSubmit={handleSubmitForm}>
+					{step}
+					<Button className={classes["confirm-button"]}>
+						{isLastIndex ? "Enviar" : "Confirmar"}
+					</Button>
+				</form>
+			</div>
 		</div>
 	);
 }
