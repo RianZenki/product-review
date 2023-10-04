@@ -1,0 +1,37 @@
+.title {
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.title h2 {
+	font-size: 1.2rem;
+	color: var(--gray-50);
+	margin-bottom: 0.5rem;
+}
+
+.title p {
+	font-size: 1rem;
+	color: var(--gray-40);
+	line-height: 150%;
+}
+
+.comments-area {
+	resize: none;
+	background-color: var(--gray-20);
+	color: var(--gray-50);
+	border: none;
+	border-radius: 0.5rem;
+	max-width: 19.6rem;
+	width: 100%;
+	height: 7.5rem;
+	outline: none;
+	padding: .75rem;
+}
+
+.comments-area::placeholder {
+	color: var(--gray-30);
+}
+
+.comments-area:focus {
+	outline: 1px solid var(--brand-color-10);
+}
