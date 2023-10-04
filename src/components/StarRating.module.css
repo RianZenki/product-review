@@ -19,7 +19,9 @@
 	transform: scale(1.3);
 }
 
-.rating-container .star-wrapper span:hover ~ span {
+.rating-container .star-wrapper span:hover ~ span, 
+.rating-container .star-wrapper span.selected,
+.rating-container .star-wrapper span.selected ~ span {
 	background-image: var(--yellow-gradient);
 	-webkit-background-clip: text;
    background-clip: text;
@@ -35,4 +37,12 @@
 .rating-container .description p {
 	font-size: 0.75rem;
 	color: var(--gray-30);
+}
+
+.rating-container .star-wrapper span.selected,
+.rating-container .star-wrapper span.selected ~ span {
+	background-image: var(--yellow-gradient);
+	-webkit-background-clip: text;
+   background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
