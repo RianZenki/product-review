@@ -1,31 +1,31 @@
-import { useState } from "react";
-
 import classes from "./StarRating.module.css";
 
-export const StarRating = () => {
-	const [rating, setRating] = useState<number | null>(null);
-	
-		const handleChangingValue = (ratingValue: number) => {
-			setRating(ratingValue);
-		};
+interface UserData {
+	ratingValue: string;
+}
 
-	const ratingValues = [4, 3, 2, 1, 0];
+type StarRatingProps = UserData & {
+	updateValues: (data: UserData) => void;
+};
+
+export const StarRating = ({ ratingValue, updateValues }: StarRatingProps) => {
+	const ratingValues = ["5", "4", "3", "2", "1"];
 
 	return (
 		<div className={classes["rating-container"]}>
 			<div className={classes["star-wrapper"]}>
-				{ratingValues.map((ratingValue) => (
+				{ratingValues.map((rating) => (
 					<>
 						<input
 							type="radio"
 							name="rating-group"
-							id={`value-${ratingValue}`}
+							id={`value-${rating}`}
+							defaultChecked={rating === ratingValue}
 							required
 						/>
-						<label htmlFor={`value-${ratingValue}`}>
+						<label htmlFor={`value-${rating}`}>
 							<span
-								onClick={() => handleChangingValue(ratingValue)}
-								key={ratingValue}
+								onClick={() => updateValues({ ratingValue: rating })}
 							>
 								&#9733;
 							</span>

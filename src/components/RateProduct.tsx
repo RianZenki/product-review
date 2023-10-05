@@ -2,7 +2,15 @@ import { StarRating } from "./StarRating";
 
 import classes from "./RateProduct.module.css";
 
-export const RateProduct = () => {
+interface UserData {
+	ratingValue: string;
+}
+
+type RateProductProps = UserData &  {
+	updateValues: (data: UserData) => void
+}
+
+export const RateProduct = (props: RateProductProps) => {
 	return (
 		<>
 			<div className={classes.title}>
@@ -13,7 +21,7 @@ export const RateProduct = () => {
 				</p>
 			</div>
 
-			<StarRating />
+			<StarRating {...props} />
 		</>
 	);
 };

@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { ArrowLeft } from "@phosphor-icons/react";
 
 import { useMultistepForm } from "./hooks/useMultistepForm";
@@ -10,15 +10,33 @@ import classes from "./App.module.css";
 
 import smartwatch from "./assets/watch.png";
 
+interface formData {
+	ratingValue: string;
+	comments: string;
+}
+
+const INITIAL_VALUES: formData = {
+	ratingValue: "",
+	comments: "",
+};
+
 export function App() {
+	const [data, setData] = useState(INITIAL_VALUES);
+
+	const updateValues = (data: Partial<formData>) => {
+		setData((prevData) => ({ ...prevData, ...data }));
+	};
+
 	const { step, back, next, isFirstIndex, isLastIndex } = useMultistepForm([
-		<RateProduct />,
-		<CommentProduct />,
+		<RateProduct {...data} updateValues={updateValues} />,
+		<CommentProduct {...data} updateValues={updateValues}  />,
 	]);
 
 	const handleSubmitForm = (e: FormEvent) => {
 		e.preventDefault();
-		next()
+		if(!isLastIndex) return next()
+
+		alert(JSON.stringify(data))
 	};
 
 	return (
@@ -36,7 +54,10 @@ export function App() {
 				</header>
 				<form className={classes.content} onSubmit={handleSubmitForm}>
 					{step}
-					<Button className={classes["confirm-button"]}>
+					<Button
+						className={classes["confirm-button"]}
+						disabled={!data.ratingValue}
+					>
 						{isLastIndex ? "Enviar" : "Confirmar"}
 					</Button>
 				</form>
