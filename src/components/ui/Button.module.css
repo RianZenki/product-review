@@ -20,3 +20,13 @@
 .button:hover {
 	background-color: var(--brand-color-20);
 }
+
+.button:disabled,
+.button[disabled=disabled] {
+	opacity: 50%;
+}
+
+.button:disabled:hover,
+.button[disabled=disabled]:hover {
+	background: var(--brand-color-10);
+}
