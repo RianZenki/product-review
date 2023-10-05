@@ -4,24 +4,33 @@ import classes from "./StarRating.module.css";
 
 export const StarRating = () => {
 	const [rating, setRating] = useState<number | null>(null);
+	
+		const handleChangingValue = (ratingValue: number) => {
+			setRating(ratingValue);
+		};
 
 	const ratingValues = [4, 3, 2, 1, 0];
-
-	const handleChangingValue = (ratingValue: number) => {
-		setRating(ratingValue);
-	};
 
 	return (
 		<div className={classes["rating-container"]}>
 			<div className={classes["star-wrapper"]}>
 				{ratingValues.map((ratingValue) => (
-					<span
-						onClick={() => handleChangingValue(ratingValue)}
-						className={ratingValue === rating ? classes.selected : ""}
-						key={ratingValue}
-					>
-						&#9733;
-					</span>
+					<>
+						<input
+							type="radio"
+							name="rating-group"
+							id={`value-${ratingValue}`}
+							required
+						/>
+						<label htmlFor={`value-${ratingValue}`}>
+							<span
+								onClick={() => handleChangingValue(ratingValue)}
+								key={ratingValue}
+							>
+								&#9733;
+							</span>
+						</label>
+					</>
 				))}
 			</div>
 			<div className={classes.description}>
