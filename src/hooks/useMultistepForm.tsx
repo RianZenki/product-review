@@ -15,10 +15,15 @@ export const useMultistepForm = (steps: ReactElement[]) => {
 		}
 	};
 
+	const goToFirstPage = () => {
+		setCurruntStepIndex(0);
+	}
+
 	return {
 		step: steps[currentStepIndex],
 		next,
 		back,
+		goToFirstPage,
 		isFirstIndex: currentStepIndex === 0,
 		isLastIndex: currentStepIndex === steps.length - 1,
 	};
