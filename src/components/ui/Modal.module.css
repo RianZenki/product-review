@@ -1,0 +1,52 @@
+.backdrop {
+	position: absolute;
+	background-color: var(--gray-40);
+	opacity: 0.8;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.modal-container {
+	position: absolute;
+	width: 50%;
+	height: 60%;
+	background-color: var(--gray-10);
+	border-radius: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5rem;
+
+	animation: fade-in .3s linear ;
+}
+
+.modal-container p {
+	font-size: 2rem;
+}
+
+.modal-container button {
+	width: 70px;
+	height: 45px;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: var(--brand-color-10);
+	color: var(--gray-10);
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.modal-container button:hover {
+	background-color: var(--brand-color-20);
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
