@@ -5,7 +5,7 @@ import classes from "./Button.module.css";
 interface ButtonProps {
 	children: string;
 	className?: string;
-	disabled: boolean
+	disabled?: boolean
 }
 
 export const Button = (props: ButtonProps) => {
