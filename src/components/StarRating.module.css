@@ -1,7 +1,11 @@
+.rating-container {
+	width: 100%;
+}
+
 .rating-container .star-wrapper {
 	display: flex;
 	flex-direction: row-reverse;
-	gap: 2rem;
+	justify-content: space-between;
 }
 
 .rating-container .star-wrapper span {
